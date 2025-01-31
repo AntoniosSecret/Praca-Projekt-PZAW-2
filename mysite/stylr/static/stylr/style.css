@@ -1,31 +1,144 @@
+:root {
+    --brown: #3E362E;
+    --light-brown: #865D36;
+    --beige: #93785B;
+    --bisque: #AC8968;
+}
+
+
+
 body {
+    display: flex;
+    flex-direction: column;
+
     margin: 0;
     padding: 0;
+
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+
+    background-color: var(--bisque);
+    color: var(--brown);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+
 
 header {
+    margin-bottom: 20px;
+}
+
+header > h1, h2 {
+    margin: 0;
+
+    text-align: center;
 
 }
+
+header > h1 {
+    font-size: 3rem;
+}
+
+header > h2 {
+    font-size: 1.5rem;
+    color: #3e362e99;
+}
+
+
 
 #main-section {
-
+    display: flex;
+    flex-direction: row-reverse;
+    flex: 1;
 }
+
+
 
 main {
-
+    flex: 3;
 }
 
-aside {
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    padding: 20px;
+}
 
+.tile > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tile:nth-child(4n) {
+    grid-row: span 2;
+}
+
+
+
+aside {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    border-right: 1px solid var(--brown);
 }
 
 aside > ul {
+    display: flex;
+    flex-direction: column;
+
     margin: 0;
     padding: 0;
+
+    width: 100%;
+    height: 100%;
 
     list-style-type: none;
 }
 
+aside > ul > li {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    width: 100%;
+
+    background-color: var(--bisque);
+
+    transition: 300ms;
+}
+
+aside > ul > li:hover {
+    filter: brightness(90%);
+
+    transition: 300ms;
+}
+
+aside > ul > li > a:any-link {
+    color: var(--brown);
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+
+
 footer {
-    
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    margin-top: auto;
+
+    height: 100px;
+    width: 100%;
+
+    background-color: var(--beige);
+}
+
+footer > span {
+    padding: 0 20px;
 }

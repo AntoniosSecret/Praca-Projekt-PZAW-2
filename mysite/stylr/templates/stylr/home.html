@@ -1,18 +1,33 @@
 {% extends 'stylr/base.html' %}
+{% load static %}
 
 {% block content %}
 
-<header>
-    <h1>Stylr</h1>
-    <h2>{{ rand_subhead }}</h2>
-</header>
+
 
 <section id="main-section">
     <main>
-
+        <section class="gallery">
+            <div class="tile"><img src="{% static 'stylr/wedding.jpg' %}" alt=""></div>
+            <div class="tile"><img src="{% static 'stylr/underwater.jpg' %}" alt=""></div>
+            <div class="tile"><img src="{% static 'stylr/mountainskies.jpg' %}" alt=""></div>
+            <div class="tile"><img src="{% static 'stylr/rocks.jpg' %}" alt=""></div>
+            <div class="tile"><img src="{% static 'stylr/wedding.jpg' %}" alt=""></div>
+            <div class="tile"><img src="{% static 'stylr/underwater.jpg' %}" alt=""></div>
+            <div class="tile"><img src="{% static 'stylr/mountainskies.jpg' %}" alt=""></div>
+            <div class="tile"><img src="{% static 'stylr/rocks.jpg' %}" alt=""></div>
+            <div class="tile"><img src="{% static 'stylr/wedding.jpg' %}" alt=""></div>
+            <div class="tile"><img src="{% static 'stylr/underwater.jpg' %}" alt=""></div>
+            <div class="tile"><img src="{% static 'stylr/mountainskies.jpg' %}" alt=""></div>
+            <div class="tile"><img src="{% static 'stylr/rocks.jpg' %}" alt=""></div>
+        </section>
     </main>
 
     <aside>
+        <header>
+            <h1>Stylr</h1>
+            <h2>{{ rand_subhead }}</h2>
+        </header>
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Search</a></li>
