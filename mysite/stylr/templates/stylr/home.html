@@ -3,8 +3,6 @@
 
 {% block content %}
 
-
-
 <section id="main-section">
     <main>
         <section class="gallery">
@@ -21,6 +19,9 @@
             <div class="tile"><img src="{% static 'stylr/mountainskies.jpg' %}" alt=""></div>
             <div class="tile"><img src="{% static 'stylr/rocks.jpg' %}" alt=""></div>
         </section>
+        <footer>
+            <span>Antoni Misztal &copy; 2025</span>
+        </footer>
     </main>
 
     <aside>
@@ -31,16 +32,11 @@
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Search</a></li>
-            <li><a href="#">Create</a></li>
+            <li><a href="{% url 'stylr:create' %}">Create</a></li>
             <li><a href="#">Profile</a></li>
             <li><a href="#">Settings</a></li>
         </ul>
     </aside>
 </section>
-
-
-<footer>
-    <span>Antoni Misztal &copy; 2025</span>
-</footer>
 
 {% endblock %}

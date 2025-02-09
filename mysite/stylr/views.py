@@ -17,3 +17,10 @@ def home(request):
         'rand_subhead': rand_subhead,
     }
     return render(request, 'stylr/home.html', context, status=retcode)
+
+def create(request):
+    retcode = 200
+    context = {
+        'title': 'Create',
+    }
+    return render(request, 'stylr/create.html', context, status=retcode)
