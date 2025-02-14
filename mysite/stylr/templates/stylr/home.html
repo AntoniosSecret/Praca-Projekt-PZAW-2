@@ -26,15 +26,28 @@
 
     <aside>
         <header>
-            <h1>Stylr</h1>
+            <h1><img src="{% static 'stylr/icons/stylr-logo.svg' %}" alt="Stylr"></h1>
             <h2>{{ rand_subhead }}</h2>
         </header>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Search</a></li>
-            <li><a href="{% url 'stylr:create' %}">Create</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Settings</a></li>
+            <li><a href="#">
+                <span><i class="fa fa-home"></i>Home</span>
+            </a></li>
+            <li><a href="#">
+                <span><i class="class fa fa-magnifying-glass"></i>Search</span>
+            </a></li>
+            <li><a href="{% url 'stylr:create' %}">
+                <span><i class="fa fa-camera"></i>Upload</span>
+            </a></li>
+            <li><a href="#">
+                <span><i class="fa fa-user"></i>Profile</span>
+            </a></li>
+            <li><a href="#">
+                <span><i class="fa fa-gear"></i>Settings</span>
+            </a></li>
+            <li><a href="#">
+                <span><i class="fa fa-right-from-bracket"></i>Logout</span>
+            </a></li>
         </ul>
     </aside>
 </section>

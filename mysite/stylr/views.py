@@ -23,5 +23,6 @@ def create(request):
     retcode = 200
     context = {
         'title': 'Create',
+        'form': PostForm
     }
     return render(request, 'stylr/create.html', context, status=retcode)

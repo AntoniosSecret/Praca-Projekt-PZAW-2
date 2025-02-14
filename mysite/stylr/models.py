@@ -7,9 +7,4 @@ class Post(models.Model):
     datetimePosted = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return (
-            f"{self.image}"
-            f"({self.datetimePosted:%d-%m-%Y %H:%M}):"
-            f"{self.desc}"
-            f"{self.likes}"
-        )
+        return f"Nr {self.pk}: {self.desc[:10]} ({self.datetimePosted:%d-%m-%Y %H:%M})"
