@@ -5,13 +5,10 @@
 
 <section id="page-body">
     <main>
-        <section class="main-section create-main">
-            <form action="{% url 'stylr:create' %}" method="post" enctype="multipart/form-data"  class="create-form">
-                <h1>Upload a Post:</h1>
-                {% csrf_token %}
-                {{ form }}
-                <input type="submit" value="Post" class="form-submit">
-            </form>
+        <section class="main-section">
+            <img src="{{ post.image.url }}" alt="User Post" class="post-image">
+            <p>Description:<br>{{ post.desc }}</p>
+            <span>👍 {{ post.likes }}</span>
         </section>
         
         <footer>
@@ -46,5 +43,4 @@
         </ul>
     </aside>
 </section>
-
 {% endblock %}

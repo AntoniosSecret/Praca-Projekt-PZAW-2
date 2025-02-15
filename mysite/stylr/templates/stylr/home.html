@@ -3,22 +3,20 @@
 
 {% block content %}
 
-<section id="main-section">
+<section id="page-body">
     <main>
-        <section class="gallery">
-            <div class="tile"><img src="{% static 'stylr/wedding.jpg' %}" alt=""></div>
-            <div class="tile"><img src="{% static 'stylr/underwater.jpg' %}" alt=""></div>
-            <div class="tile"><img src="{% static 'stylr/mountainskies.jpg' %}" alt=""></div>
-            <div class="tile"><img src="{% static 'stylr/rocks.jpg' %}" alt=""></div>
-            <div class="tile"><img src="{% static 'stylr/wedding.jpg' %}" alt=""></div>
-            <div class="tile"><img src="{% static 'stylr/underwater.jpg' %}" alt=""></div>
-            <div class="tile"><img src="{% static 'stylr/mountainskies.jpg' %}" alt=""></div>
-            <div class="tile"><img src="{% static 'stylr/rocks.jpg' %}" alt=""></div>
-            <div class="tile"><img src="{% static 'stylr/wedding.jpg' %}" alt=""></div>
-            <div class="tile"><img src="{% static 'stylr/underwater.jpg' %}" alt=""></div>
-            <div class="tile"><img src="{% static 'stylr/mountainskies.jpg' %}" alt=""></div>
-            <div class="tile"><img src="{% static 'stylr/rocks.jpg' %}" alt=""></div>
+        <section class="main-section">
+            <section class="gallery">
+                {% for post in posts %}
+                    <div class="tile">
+                        <a href="{% url 'stylr:post_detail' post.id %}"><img src="{{ post.image.url }}" alt="User Post"></a>
+                    </div>
+                {% empty %}
+                <p>No posts available.</p>
+                {% endfor %}
+            </section>
         </section>
+        
         <footer>
             <span>Antoni Misztal &copy; 2025</span>
         </footer>
@@ -26,11 +24,11 @@
 
     <aside>
         <header>
-            <h1><img src="{% static 'stylr/icons/stylr-logo.svg' %}" alt="Stylr"></h1>
+            <h1><a href="{% url 'stylr:home' %}"><img src="{% static 'stylr/icons/stylr-logo-2.svg' %}" alt="Stylr"></a></h1>
             <h2>{{ rand_subhead }}</h2>
         </header>
         <ul>
-            <li><a href="#">
+            <li><a href="{% url 'stylr:home' %}">
                 <span><i class="fa fa-home"></i>Home</span>
             </a></li>
             <li><a href="#">
