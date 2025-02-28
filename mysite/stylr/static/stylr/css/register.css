@@ -1,0 +1,148 @@
+.register-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-box {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    width: 60%;
+    min-width: 550px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background-color: white;
+    
+    box-shadow: 10px 10px 30px #0000004b;
+}
+
+.create-form {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 60%;
+    height: 60%;
+    min-width: 550px;
+    min-height: 450px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background-color: white;
+    
+    box-shadow: 10px 10px 30px #0000004b;
+}
+
+.register-box > img {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    height: 70px;
+}
+
+.register-box > h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+
+    background: linear-gradient(135deg, red, blue);
+    background-clip: text;
+    color: transparent;
+}
+
+.register-box > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-box > form > p {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.register-box > form > p > label {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.register-box > form > p > input {
+    width: 520px;
+    height: 40px;
+
+    padding: 15px;
+
+    border: 2px solid transparent;
+    border-radius: 20px;
+
+    background:
+        linear-gradient(0deg, white, white),
+        linear-gradient(45deg, red , blue);
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    font-size: 1rem;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+
+    outline: none;
+
+    resize: none;
+}
+
+.register-box > form > span {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.register-box > form > span > input[type='submit'] {
+    width: 250px;
+    height: 50px;
+
+    margin: 20px 0 10px;
+
+    border: none;
+    border-radius: 20px;
+
+    background: linear-gradient(135deg, red , blue);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition: 200ms;
+}
+
+.register-box > form > span > input[type='submit']:hover {
+    transform: scale(105%);
+
+    transition: 200ms;
+}
+
+.register-box > form > span > input[type='submit']:active {
+    transform: scale(102%);
+
+    transition: 200ms;
+}
+
+.register-box > form > span > a:any-link {
+    color: blueviolet;
+}

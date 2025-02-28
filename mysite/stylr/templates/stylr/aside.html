@@ -1,0 +1,24 @@
+{% load static %}
+<aside>
+    <header>
+        <h1><a href="{% url 'stylr:home' %}"><img src="{% static 'stylr/icons/stylr-logo-2.svg' %}" alt="Stylr"></a></h1>
+        <h2 class="subhead">{{ rand_subhead }}</h2>
+        <form action="{% url 'stylr:home' %}" method="get" class="search-form">
+            <input type="text" name="searchbar" id="searchbar" placeholder="Search for posts...">
+        </form>
+    </header>
+    <ul>
+        <li><a href="{% url 'stylr:home' %}">
+            <span><i class="fa fa-home"></i>Home</span>
+        </a></li>
+        <li><a href="{% url 'stylr:create' %}">
+            <span><i class="fa fa-camera"></i>Upload</span>
+        </a></li>
+        <li><a href="{% url 'stylr:profile' %}">
+            <span><i class="fa fa-user"></i>Profile</span>
+        </a></li>
+        <li><a href="{% url 'stylr:logout' %}">
+            <span><i class="fa fa-right-from-bracket"></i>Logout</span>
+        </a></li>
+    </ul>
+</aside>

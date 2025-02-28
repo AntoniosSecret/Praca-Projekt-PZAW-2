@@ -1,0 +1,22 @@
+{% extends 'stylr/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main class="login-main">
+    <section class="login-box">
+        <img src="{% static 'stylr/icons/stylr-favicon.svg' %}" alt="Stylr Logo">
+        <h2>Login</h2>
+        <form action="{% url 'stylr:login_user' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <span>
+                <input type="submit" value="Login">
+                <a href="{% url 'stylr:register_user' %}">Don't have an account?</a>
+            </span>
+        </form>
+    </section>
+</main>
+{% include 'stylr/footer.html' %}
+
+{% endblock %}

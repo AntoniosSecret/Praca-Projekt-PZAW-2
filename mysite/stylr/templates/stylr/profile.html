@@ -9,13 +9,13 @@
             {% include 'stylr/header.html' %}
 
             <section class="gallery">
-                {% for post in posts %}
-                    <div class="tile">
-                        <a href="{% url 'stylr:post_detail' post.id %}"><img src="{{ post.image.url }}" alt="User Post"></a>
-                    </div>
-                {% empty %}
-                <p>No posts available.</p>
-                {% endfor %}
+            {% for post in user_posts %}
+                <div class="tile">
+                    <a href="{% url 'stylr:post_detail' post.id %}"><img src="{{ post.image.url }}" alt="User Post"></a>
+                </div>
+            {% empty %}
+                <p>No posts available. Post Something!</p>
+            {% endfor %}
             </section>
         </section>
         

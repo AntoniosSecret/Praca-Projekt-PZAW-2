@@ -5,42 +5,17 @@
 
 <section id="page-body">
     <main>
+        {% include 'stylr/header.html' %}
+
         <section class="main-section">
             <img src="{{ post.image.url }}" alt="User Post" class="post-image">
             <p>Description:<br>{{ post.desc }}</p>
             <span>👍 {{ post.likes }}</span>
         </section>
         
-        <footer>
-            <span>Antoni Misztal &copy; 2025</span>
-        </footer>
+        {% include 'stylr/footer.html' %}
     </main>
-
-    <aside>
-        <header>
-            <h1><a href="{% url 'stylr:home' %}"><img src="{% static 'stylr/icons/stylr-logo-2.svg' %}" alt="Stylr"></a></h1>
-            <h2>{{ rand_subhead }}</h2>
-        </header>
-        <ul>
-            <li><a href="{% url 'stylr:home' %}">
-                <span><i class="fa fa-home"></i>Home</span>
-            </a></li>
-            <li><a href="#">
-                <span><i class="class fa fa-magnifying-glass"></i>Search</span>
-            </a></li>
-            <li><a href="{% url 'stylr:create' %}">
-                <span><i class="fa fa-camera"></i>Upload</span>
-            </a></li>
-            <li><a href="#">
-                <span><i class="fa fa-user"></i>Profile</span>
-            </a></li>
-            <li><a href="#">
-                <span><i class="fa fa-gear"></i>Settings</span>
-            </a></li>
-            <li><a href="#">
-                <span><i class="fa fa-right-from-bracket"></i>Logout</span>
-            </a></li>
-        </ul>
-    </aside>
+    
+    {% include 'stylr/aside.html' %}
 </section>
 {% endblock %}
