@@ -21,7 +21,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('stylr/', include('stylr.urls')),  # Include your app URLs
+    path('stylr/', include('stylr.urls')),
 ]
 
 # Serve media files only in development mode

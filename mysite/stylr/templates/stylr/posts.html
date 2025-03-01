@@ -8,9 +8,22 @@
         {% include 'stylr/header.html' %}
 
         <section class="main-section">
-            <img src="{{ post.image.url }}" alt="User Post" class="post-image">
-            <p>Description:<br>{{ post.desc }}</p>
-            <span>👍 {{ post.likes }}</span>
+            <div class="post-box">
+                <p class="post-user">{{ post.user }}</p>
+                <img src="{{ post.image.url }}" alt="User Post" class="post-image">
+                <span class="post-likes">
+
+                    <form action="{% url 'stylr:post_detail' post.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="" id="heart-submit">
+                        <label for="heart-submit">
+                            <i class="fa-regular fa-heart" id="heart-icon"></i>&nbsp;
+                        </label>
+                    {{ post.likes }}
+                    </form>
+                </span>
+                <p class="post-desc"><span>{{ post.user }}</span> {{ post.desc }}</p>
+            </div>
         </section>
         
         {% include 'stylr/footer.html' %}

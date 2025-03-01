@@ -109,6 +109,8 @@ main {
 }
 
 .main-section {
+    position: relative;
+
     flex: 1;
 }
 
@@ -145,12 +147,6 @@ main {
 
 .tile:nth-child(4n) {
     grid-row: span 2;
-}
-
-
-
-.post-image {
-    width: 300px;
 }
 
 

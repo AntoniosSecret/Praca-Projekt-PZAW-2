@@ -5,7 +5,7 @@ from django.dispatch import receiver
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="stylr/images")
+    image = models.ImageField(upload_to="stylr/media/stylr/images")
     desc = models.TextField(max_length=200)
     likes = models.PositiveIntegerField(default=0)
     datetimePosted = models.DateTimeField(auto_now_add=True)
