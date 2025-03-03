@@ -21,6 +21,11 @@
     font-weight: bold;
 }
 
+.post-box > .post-user > a:any-link {
+    color: var(--main-dark);
+    text-decoration: none;
+}
+
 .post-box > .post-image {
     width: 300px;
 
@@ -37,11 +42,17 @@
     font-weight: bold;
 }
 
-.post-box > .post-likes > i {
+.post-box > .post-likes > a > i {
+    margin-right: 5px;
+
     background: linear-gradient(50deg, red, blue);
     background-clip: text;
     color: transparent;
     text-shadow: 0px 0px 0px;
+}
+
+.post-box > .post-likes > a:any-link {
+    text-decoration: none;
 }
 
 .post-box > .post-likes > i {
@@ -54,8 +65,4 @@
 
 .post-box > .post-desc > span {
     font-weight: bold;
-}
-
-#heart-submit {
-    display: none;
 }

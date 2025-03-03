@@ -1,0 +1,8 @@
+{% if messages %}
+    {% for message in messages %}
+    <div class="{% if message.tags %}{{ message.tags }}{% endif %} message" id="message-{{ forloop.counter }}">
+        <span>{{ message }}</span>
+        <input type="button" value="&#10006" id="messageButton" onclick="{document.getElementById('message-{{ forloop.counter }}').style.display = 'none'}">
+    </div>
+    {% endfor %}
+{% endif %}

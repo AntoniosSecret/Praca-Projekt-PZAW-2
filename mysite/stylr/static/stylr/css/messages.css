@@ -1,0 +1,50 @@
+.message {
+    position: absolute;
+    top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    border-radius: 10px;
+
+    width: 70%;
+    height: 4em;
+
+    padding-inline: 20px;
+
+    z-index: 1;
+}
+
+.message > span {
+    flex: 1;
+}
+
+.message > input[type=button] {
+    flex-grow: 0;
+
+    background-color: rgba(0, 0, 0, 0.3);
+
+    border: none;
+    border-radius: 5px;
+
+    width: 3em;
+    height: 3em;
+
+    cursor: pointer;
+}
+
+.success {
+    background-color: #16aa4f;
+    color: #00591f;
+}
+
+.error {
+    background-color: #fae8b1;
+    color: #866310;
+}
+
+.info {
+    background-color: #cdecf0;
+    color: #00565f;
+}

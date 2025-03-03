@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.urls import reverse
 from .forms import PostForm, LoginForm, RegisterForm
 from .models import Post
 import random
@@ -19,7 +22,7 @@ def generateRand() -> str:
 
 def home(request):
     if not request.user.is_authenticated:
-        retcode = 400
+        messages.info(request, "You must be logged in to access page.")
         return redirect('stylr:login_user')
     else:
         retcode = 200
@@ -41,7 +44,7 @@ def home(request):
 
 def create(request):
     if not request.user.is_authenticated:
-        retcode = 400
+        messages.info(request, "You must be logged in to access page.")
         return redirect('stylr:login_user')
     else:
         context = {
@@ -53,13 +56,13 @@ def create(request):
             form = PostForm(request.POST, request.FILES)
             if form.is_valid():
                 post = form.save(commit=False)
-                post.likes = 0
                 if len(post.desc) > 200:
                     retcode = 400
-                    form.add_error('desc', 'Description length must be under 200 characters.')
+                    messages.error(request, "Description length must be under 200 characters.")
                 else:
                     post.user = request.user
                     post.save()
+                    messages.success(request, "You've successfully posted.")
                     return redirect('stylr:home')
         else:
             form = PostForm()
@@ -70,7 +73,7 @@ def create(request):
 
 def post_detail(request, id):
     if not request.user.is_authenticated:
-        retcode = 400
+        messages.info(request, "You must be logged in to access page.")
         return redirect('stylr:login_user')
     else:
         retcode = 200
@@ -79,6 +82,7 @@ def post_detail(request, id):
             'title': f'{post.desc[:10]}...',
             'rand_subhead': generateRand,
             'post': post,
+            'likes': post.num_of_likes(),
         }
         
         return render(request, 'stylr/posts.html', context, status=retcode)
@@ -86,7 +90,7 @@ def post_detail(request, id):
 
 def login_user(request):
     if request.user.is_authenticated:
-        retcode = 400
+        messages.info(request, "You're already logged in.")
         return redirect('stylr:home')
     else:
         retcode = 200
@@ -104,6 +108,7 @@ def login_user(request):
                 
                 if user is not None:
                     login(request, user)
+                    messages.success(request, "You've successfully logged in.")
                     return redirect('stylr:home')
                 else:
                     return redirect('stylr:login_user')
@@ -117,7 +122,7 @@ def login_user(request):
 
 def register_user(request):
     if request.user.is_authenticated:
-        retcode = 400
+        messages.info(request, "You're already logged in.")
         return redirect('stylr:home')
     else:
         retcode = 200
@@ -129,6 +134,7 @@ def register_user(request):
             form = RegisterForm(request.POST)
             if form.is_valid():
                 form.save()
+                messages.success(request, "You've successfully registered an account.")
                 return redirect('stylr:login_user')
         else:
             form = RegisterForm()
@@ -140,22 +146,41 @@ def register_user(request):
 
 def logout_user(request):
     logout(request)
+    messages.success(request, "You've successfully logged out.")
     return redirect('stylr:login_user')
 
 
-def profile(request):
+def profile(request, id):
     if not request.user.is_authenticated:
-        retcode = 400
+        messages.info(request, "You must be logged in to access page.")
         return redirect('stylr:login_user')
     else:
         retcode = 200
         context = {
-            'title': f'Profile: {request.user}',
             'rand_subhead': generateRand,
         }
         
-        user_posts = Post.objects.filter(user=request.user)
+        user = User.objects.get(id=id)
         
+        user_posts = Post.objects.filter(user=user).order_by('-datetimePosted')
+        
+        context['user'] = user
+        context['title'] = f'Profile: {user}'
         context['user_posts'] = user_posts
         
         return render(request, 'stylr/profile.html', context, status=retcode)
+
+
+def like_post(request, id):
+    if not request.user.is_authenticated:
+        messages.info(request, "You must be logged in to access page.")
+        return redirect('stylr:login_user')
+    else:
+        post = Post.objects.get(id=id)
+        
+        if post.likes.filter(id=request.user.id):
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+    
+        return redirect(reverse('stylr:post_detail', args=[post.id]))

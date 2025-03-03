@@ -14,7 +14,7 @@
         <li><a href="{% url 'stylr:create' %}">
             <span><i class="fa fa-camera"></i>Upload</span>
         </a></li>
-        <li><a href="{% url 'stylr:profile' %}">
+        <li><a href="{% url 'stylr:profile' request.user.id %}">
             <span><i class="fa fa-user"></i>Profile</span>
         </a></li>
         <li><a href="{% url 'stylr:logout' %}">

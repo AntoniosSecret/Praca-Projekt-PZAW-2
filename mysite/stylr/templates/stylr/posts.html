@@ -9,18 +9,17 @@
 
         <section class="main-section">
             <div class="post-box">
-                <p class="post-user">{{ post.user }}</p>
+                <p class="post-user"><a href="{% url 'stylr:profile' post.user.id %}">{{ post.user }}</a></p>
                 <img src="{{ post.image.url }}" alt="User Post" class="post-image">
                 <span class="post-likes">
-
-                    <form action="{% url 'stylr:post_detail' post.id %}" method="post">
-                        {% csrf_token %}
-                        <input type="submit" value="" id="heart-submit">
-                        <label for="heart-submit">
-                            <i class="fa-regular fa-heart" id="heart-icon"></i>&nbsp;
-                        </label>
-                    {{ post.likes }}
-                    </form>
+                    <a href="{% url 'stylr:like_post' post.id %}">
+                        {% if request.user in post.likes.all %}
+                        <i class="fa fa-heart" id="heart-icon"></i>
+                        {% else %}
+                        <i class="fa-regular fa-heart" id="heart-icon"></i>
+                        {% endif %}
+                    </a>
+                    {{ likes }}
                 </span>
                 <p class="post-desc"><span>{{ post.user }}</span> {{ post.desc }}</p>
             </div>
