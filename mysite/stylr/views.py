@@ -111,7 +111,11 @@ def login_user(request):
                     messages.success(request, "You've successfully logged in.")
                     return redirect('stylr:home')
                 else:
+                    messages.error(request, "Username or password is incorrect.")
                     return redirect('stylr:login_user')
+            else:
+                messages.error(request, "Form is invalid.")
+                
         else:
             form = LoginForm()
         
@@ -136,6 +140,8 @@ def register_user(request):
                 form.save()
                 messages.success(request, "You've successfully registered an account.")
                 return redirect('stylr:login_user')
+            else:
+                messages.error(request, "Invalid form. Username: Max. 150 characters; Password: Min. 8 characters, not only numbers; Repeat Password: Same as password.")
         else:
             form = RegisterForm()
         
