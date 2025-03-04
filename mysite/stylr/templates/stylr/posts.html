@@ -8,6 +8,7 @@
         {% include 'stylr/header.html' %}
 
         <section class="main-section">
+            {% include 'stylr/messages.html' %}
             <div class="post-box">
                 <p class="post-user"><a href="{% url 'stylr:profile' post.user.id %}">{{ post.user }}</a></p>
                 <img src="{{ post.image.url }}" alt="User Post" class="post-image">

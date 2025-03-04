@@ -8,6 +8,7 @@
         {% include 'stylr/header.html' %}
 
         <section class="main-section create-main">
+            {% include 'stylr/messages.html' %}
             <form action="{% url 'stylr:create' %}" method="post" enctype="multipart/form-data"  class="create-form">
                 <h1>Upload a Post:</h1>
                 {% csrf_token %}

@@ -5,9 +5,10 @@
 
 <section id="page-body">
     <main>
-        <section class="main-section">
-            {% include 'stylr/header.html' %}
+        {% include 'stylr/header.html' %}
 
+        <section class="main-section">
+            {% include 'stylr/messages.html' %}
             <section class="gallery">
                 {% for post in posts %}
                     <div class="tile">
